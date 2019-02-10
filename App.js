@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, Button, View} from 'react-native';
+import {pingus} from './pingus';
 
 function noot() {
   console.error('NOOT NOOT');
@@ -23,8 +24,14 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Noot Noot!</Text>
-        <Button title="Tap to Noot"
-         onPress={noot}
+        <Button title={pingus[0].name}
+         onPress={pingus[0].onTap}
+         color={buttonColor}></Button>
+         <Button title={pingus[1].name}
+         onPress={pingus[1].onTap}
+         color={buttonColor}></Button>
+         <Button title={pingus[2].name}
+         onPress={pingus[2].onTap}
          color={buttonColor}></Button>
       </View>
     );
