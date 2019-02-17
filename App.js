@@ -7,25 +7,29 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, Button, View} from 'react-native';
+import {StyleSheet, Image, Text, View, TouchableHighlight} from 'react-native';
 import {pingus} from './pingus';
 
 var backgroundColor = '#6D6D6D';
-var textColour = '#DBDBDB';
-var buttonColor = '#D82600';
+var textColor = "#DBDBDB";
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-        pingus.map((item, index) => (
-        <View style={styles.container}
-          key = {item.id}>
-          <Button
-            title={item.name}
-            onPress={item.onTap}
-            color={buttonColor}>
-          </Button>
+        pingus.map((item, i) => (
+        <View key={i}
+          style={styles.container}>
+          <Text key={i}
+            style={styles.title}>
+            {item.name}
+          </Text>
+          <TouchableHighlight key={i}
+            onPress={item.onTap}>
+            <Image key={i}
+              style={styles.image}
+              source={item.imageSource}/>
+          </TouchableHighlight>
         </View>
       ))
     );
@@ -38,11 +42,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: backgroundColor,
-    color: textColour,
   },
   title: {
-    color: textColour,
+    color: textColor,
     fontSize: 30,
-    margin: 10,
+    margin: 5,
+    marginBottom: 0,
   },
+  image: {
+    width: 200,
+    height: 100,
+    margin: 5,
+  }
 });
