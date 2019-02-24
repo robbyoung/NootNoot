@@ -7,8 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Image, Text, View, TouchableHighlight} from 'react-native';
+import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
 import {pingus} from './pingus';
+import {playSound} from './soundHandler';
 
 var backgroundColor = '#6D6D6D';
 var textColor = "#DBDBDB";
@@ -24,12 +25,14 @@ export default class App extends Component<Props> {
             style={styles.title}>
             {item.name}
           </Text>
-          <TouchableHighlight key={i}
-            onPress={item.onTap}>
+          <TouchableOpacity key={i}
+            onPress={() => {
+              playSound(item.sound);
+            }}>
             <Image key={i}
               style={styles.image}
               source={item.imageSource}/>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       ))
     );

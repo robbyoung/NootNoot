@@ -1,23 +1,27 @@
+import {loadSound} from '../soundHandler';
+
 export type Pingu = {
 	name: string,
-    onTap: () => void,
     imageSource: any,
+    sound: any,
 };
+
+var urlPrefix = 'C:\\Users\\robby\\Documents\\NootNoot\\images\\';
 
 export const pingus = [{
         name: 'Standard Pingu',
-        onTap: () => console.error('Noot Noot!'),
-        imageSource: require('C:\\Users\\robby\\Documents\\NootNoot\\images\\hello-pingu.png'),
+        imageSource: require(urlPrefix + 'hello-pingu.png'),
+        sound: loadSound('noot_noot.mp3'),
     }, {
         name: 'Loud Pingu',
-        onTap: () => console.error('NOOT NOOT!'),
-        imageSource: require('C:\\Users\\robby\\Documents\\NootNoot\\images\\loud-pingu.jpg'),
+        imageSource: require(urlPrefix + 'loud-pingu.jpg'),
+        sound: loadSound('noot_noot.mp3'),
     }, {
         name: 'Young Pingu',
-        onTap: () => console.error('noot, noot'),
-        imageSource: require('C:\\Users\\robby\\Documents\\NootNoot\\images\\young-pingu.jpg'),
+        imageSource: require(urlPrefix + 'young-pingu.jpg'),
+        sound: loadSound('noot_noot.mp3'),
     }, {
         name: 'Happy Pingu',
-        onTap: () => console.error('noot noot :)'),
-        imageSource: require('C:\\Users\\robby\\Documents\\NootNoot\\images\\happy-pingu.jpg'),
+        imageSource: require(urlPrefix + 'happy-pingu.jpg'),
+        sound: loadSound('noot_noot.mp3'),
     }];
